@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Return Book</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../stylesheets/mycss.css" type="text/css" rel="stylesheet" />
+		<link href="../../stylesheets/widgit.css" type="text/css" rel="stylesheet" />
+		<link href="../../stylesheets/show.css" type="text/css" rel="stylesheet" />
+	</head>
+	<body class="ReturnBook">
+		<%- include('./navBarAfterLogin', {}) %>
+		<div align="center" style="margin-top: 50px">
+			<div class="title">Return Book</div>
+			<% if (count > 0) {%>
+			<form name="ReturnBook" action="/LateLogin/returnBook" method="POST">
+				<table>
+					<tr>
+						<th>ISBN &nbsp;</th>
+						<th>Name-Book &nbsp;</th>
+						<th>Author &nbsp;</th>
+						<th>Category &nbsp;</th>
+						<th>Year</th>
+						<th>picture</th>
+					</tr>
+					<% for (let b of arrBook) { %>
+					<tr>
+						<td><input type="checkbox" name="isbn" value="<%= b.isbn%>" /><%= b.isbn%></td>
+						<td><%= b.nameBook%></td>
+						<td><%= b.nameAuthor%></td>
+						<td><%= b.category%></td>
+						<td><%= b.yearOfPublication%></td>
+						<td><img src="<%= b.pathPicture%>" width="40" height="50" /></td>
+					</tr>
+					<% }%>
+				</table>
+
+				<input type="submit" class="button" value="return Book" />
+			</form>
+			<% } else { %>
+			<div class="not-books">No books to return</div>
+			<% } %>
+		</div>
+	</body>
+</html>

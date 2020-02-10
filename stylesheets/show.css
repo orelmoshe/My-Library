@@ -1,0 +1,48 @@
+.showBooksOfLibrary,
+.ReturnBook {
+	background-color: #404146;
+}
+.title {
+	height: fit-content;
+	width: fit-content;
+	color: #ffffff;
+	font-family: Inter;
+	font-size: 40px;
+	font-weight: 800;
+	letter-spacing: -0.01px;
+	line-height: 49px;
+	text-align: center;
+}
+
+.showBooksOfLibrary table tr th,
+.ReturnBook table tr th {
+	color: #ffffff;
+	font-family: Inter;
+	font-size: 24px;
+	font-weight: 200;
+	letter-spacing: -0.01px;
+	line-height: 49px;
+	text-align: center;
+}
+
+.showBooksOfLibrary table tr td,
+.ReturnBook table tr td {
+	font-family: Inter;
+	font-size: large;
+	font-style: normal;
+	font-weight: 180;
+	text-align: center;
+	color: #ffffff;
+}
+
+.not-books {
+	height: fit-content;
+	width: fit-content;
+	color: #ffffff;
+	font-family: Inter;
+	font-size: 30px;
+	font-weight: 200;
+	letter-spacing: -0.01px;
+	line-height: 49px;
+	text-align: center;
+}

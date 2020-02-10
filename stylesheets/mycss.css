@@ -1,0 +1,32 @@
+/* 
+    Created on : 18/11/2018, 22:14:02
+    Author     : orelm
+*/
+@import url('https://rsms.me/inter/inter.css');
+html {
+	font-family: 'Inter', sans-serif;
+}
+@supports (font-variation-settings: normal) {
+	html {
+		font-family: 'Inter var', sans-serif;
+	}
+}
+
+.navBarBeforeLogin , .navBarAfterLoginLogin,.Library ,.addBook , .registration  , .SearchBook , .deleteBook , .borrowBook , .Login, .showBooksOfLibrary , .ReturnBook ,.Error/*body*/
+ {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	background-color: #404146;
+}
+
+.middle {
+	text-align: center;
+	margin-top: 95px;
+	font-size: 20px;
+	color: #ffffff;
+	font-family: Inter;
+}

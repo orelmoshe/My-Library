@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Show Book</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../stylesheets/mycss.css" type="text/css" rel="stylesheet" />
+		<link href="../stylesheets/show.css" type="text/css" rel="stylesheet" />
+	</head>
+
+	<body class="showBooksOfLibrary">
+		<%- include('./navBarBeforeLogin', {}) %>
+
+		<div align="center" style="margin-top: 50px">
+			<div class="title">Books in Library</div>
+			<% if (count > 0) { %>
+			<table>
+				<tr>
+					<th>ISBN &nbsp;</th>
+					<th>Name-Book &nbsp;</th>
+					<th>Author &nbsp;</th>
+					<th>Category &nbsp;</th>
+					<th>Year</th>
+					<th>State</th>
+					<th>picture</th>
+				</tr>
+
+				<% for (let book of Books) { %>
+				<tr>
+					<td><%= book.isbn%></td>
+					<td><%= book.nameBook%></td>
+					<td><%= book.nameAuthor%></td>
+					<td><%= book.category%></td>
+					<td><%= book.yearOfPublication%></td>
+					<td><%= book.isLoan%></td>
+					<td><img src="<%= book.pathPicture %>" width="40" height="50" /></td>
+				</tr>
+				<% } %>
+			</table>
+
+			<% } else {%>
+			<div class="not-books">There are no books in the library</div>
+			<% } %>
+		</div>
+	</body>
+</html>

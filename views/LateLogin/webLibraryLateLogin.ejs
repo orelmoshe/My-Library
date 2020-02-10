@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Library</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../stylesheets/mycss.css" type="text/css" rel="stylesheet" />
+	</head>
+
+	<body class="Library">
+		<%- include('./navBarAfterLogin', {}) %>
+		<div class="middle">
+			<p>
+				Hello <% if (person != null) { %> <%= person.firstName %> <%= person.lastName %> <% } %> ,
+				Welcome to the website of the Municipal Library.
+			</p>
+			<p>salute</p>
+			<p>Management</p>
+			<img
+				src="../images/library2.jpg"
+				alt="orel"
+				style="width:128px;height:128px; border-radius: 50%"
+			/>
+		</div>
+	</body>
+</html>

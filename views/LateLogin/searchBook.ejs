@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search book</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../stylesheets/mycss.css" type="text/css" rel="stylesheet">
+        <link href="../../stylesheets/widgit.css" type="text/css" rel="stylesheet">
+        <link href="../../stylesheets/search.css" type="text/css" rel="stylesheet">
+    </head>
+    <body class="SearchBook">
+            <%- include('./navBarAfterLogin', {}) %>
+            <div class="form-container">
+                <div class="title">Search Book</div>
+                <form name="searchBook" action="/LateLogin/searchBook" method="POST">
+                    <div class="input-container">
+                        <div class="text-input-up">Description</div>
+                        <textarea cols="40" rows="10" class="input" name="descriptionBook">Enter any description to search:</textarea>
+                    </div>            
+                    <div class="buttons-container">
+                        <input type="submit" class="button" value="Search" />
+    
+                        <input type="reset" class="button" value="Reset" />
+                    </div>
+                </form>
+            </div>
+        </body>
+    </html>

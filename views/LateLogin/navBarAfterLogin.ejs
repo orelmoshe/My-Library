@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Library</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../stylesheets/mycss.css" type="text/css" rel="stylesheet" />
+		<style>
+			ul {
+				display: flex;
+				justify-content: center;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #333;
+			}
+
+			li {
+				float: left;
+			}
+
+			li a {
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+
+			li a:hover {
+				background-color: #111;
+			}
+		</style>
+	</head>
+	<body class="navBarAfterLogin">
+		<div class="navBar">
+			<ul name="SelectCategory">
+				<li><a href="/LateLogin/webLibraryLateLogin">Home</a></li>
+				<li><a href="/LateLogin/Logout">Logout</a></li>
+				<li><a href="/LateLogin/borrowBook">Borrow Book</a></li>
+				<li><a href="/LateLogin/returnBook">Return Book</a></li>
+				<li><a href="/LateLogin/searchBook">Search Book</a></li>
+				<li><a href="/LateLogin/ShowBookForUser">Show Books</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

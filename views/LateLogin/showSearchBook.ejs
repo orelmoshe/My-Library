@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Show Search Books</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../stylesheets/mycss.css" type="text/css" rel="stylesheet" />
+		<link href="../../stylesheets/show.css" type="text/css" rel="stylesheet" />
+	</head>
+
+	<body class="showBooksOfLibrary">
+		<%- include('./navBarAfterLogin', {}) %>
+		<div align="center" style="margin-top: 50px">
+			<div class="title">Books in Library</div>
+			<% if (count > 0) { %>
+			<table>
+				<tr>
+					<th>ISBN &nbsp;</th>
+					<th>Name-Book &nbsp;</th>
+					<th>Author &nbsp;</th>
+					<th>Category &nbsp;</th>
+					<th>Year</th>
+					<th>State</th>
+					<th>picture</th>
+				</tr>
+
+				<% for (let b of arrBook) { %>
+				<tr>
+					<% if (b.isLoan === 'false') { %>
+					<form action="/LateLogin/borrowBook/<%= b.isbn%>" method="GET">
+						<td>
+							<button
+								type="submit"
+								name="isbn"
+								style="color: white;background-color: #333;"
+								value="<%= b.isbn%>"
+							>
+								<%=b.isbn%>
+							</button>
+						</td>
+					</form>
+					<% } else {%>
+					<td><%= b.isbn%></td>
+					<%}%>
+					<td><%= b.nameBook%></td>
+					<td><%= b.nameAuthor%></td>
+					<td><%= b.category%></td>
+					<td><%= b.yearOfPublication%></td>
+					<td><%= b.isLoan%></td>
+					<td><img src="<%= b.pathPicture%>" width="40" height="50" /></td>
+				</tr>
+				<% } %>
+			</table>
+
+			<% } else { %>
+			<div class="not-books">There are no books in the library</div>
+			<% } %>
+		</div>
+	</body>
+</html>

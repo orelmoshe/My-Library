@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../stylesheets/mycss.css" type="text/css" rel="stylesheet" />
+		<link href="../stylesheets/widgit.css" type="text/css" rel="stylesheet" />
+	</head>
+	<body class="Login">
+		<%- include('./navBarBeforeLogin', {}) %>
+		<div class="form-container">
+			<div class="title">Login</div>
+			<form name="Login" action="/login" method="POST">
+				<div class="input-container">
+					<div class="text-input-up">UserName</div>
+					<input type="email" name="email" class="input" placeholder="Inset your email" />
+				</div>
+				<div class="input-container">
+					<div class="text-input-up">Password</div>
+					<input type="password" name="password" class="input" placeholder="Insert password" />
+				</div>
+				<div class="buttons-container">
+					<input type="submit" class="button" value="Login to Library" />
+
+					<input type="reset" class="button" value="Reset" />
+
+					<div class="button">
+						<div class="link-container">
+							<a href="/registration">registration</a>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

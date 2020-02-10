@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Add book</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../stylesheets/mycss.css" type="text/css" rel="stylesheet" />
+		<link href="../stylesheets/widgit.css" type="text/css" rel="stylesheet" />
+		<link href="../stylesheets/add.css" type="text/css" rel="stylesheet" />
+	</head>
+
+	<body class="addBook">
+		<%- include('./navBarBeforeLogin', {}) %>
+		<div class="form-container">
+			<div class="title">Add Book</div>
+			<form action="/addBook" method="POST">
+				<div class="input-container">
+					<div class="text-input-up">ISBN</div>
+					<input type="text" name="isbn" class="input" placeholder="Inset ISBN" />
+				</div>
+				<div class="input-container">
+					<div class="text-input-up">Name Book</div>
+					<input type="text" name="nameBook" class="input" placeholder="Insert Name Book" />
+				</div>
+				<div class="input-container">
+					<div class="text-input-up">Author</div>
+					<input type="text" name="nameAuthor" class="input" placeholder="Insert Author" />
+				</div>
+				<div class="input-container">
+					<div class="text-input-up">Category</div>
+					<input type="text" name="category" class="input" placeholder="Insert Category" />
+				</div>
+				<div class="input-container">
+					<div class="text-input-up">Year of publication</div>
+					<input
+						type="number"
+						name="yearOfPublication"
+						class="input"
+						min="1500"
+						max="2018"
+						size="30"
+						placeholder="Insert Year between 1500 to 2018"
+					/>
+				</div>
+				<div class="input-container">
+					<div class="text-input-up">Number of copies</div>
+					<input
+						type="number"
+						name="numberOfCopies"
+						class="input"
+						min="1"
+						max="1000"
+						size="33"
+						placeholder="Insert num copies between 1 to 1000"
+					/>
+				</div>
+
+				<div class="input-container">
+					<div class="text-input-up">Path picture</div>
+					<input type="text" name="pathPicture" class="input" placeholder="Inset path Picture" />
+				</div>
+
+				<div class="buttons-container">
+					<input type="submit" class="button" value="Add Book" />
+
+					<input type="reset" class="button" value="Reset" />
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

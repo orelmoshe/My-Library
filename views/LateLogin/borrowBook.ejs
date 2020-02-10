@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Borrow book</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="../../stylesheets/mycss.css" type="text/css" rel="stylesheet" />
+		<link href="../../stylesheets/widgit.css" type="text/css" rel="stylesheet" />
+		<link href="../../stylesheets/borrow.css" type="text/css" rel="stylesheet" />
+	</head>
+	<body class="borrowBook">
+		<%- include('./navBarAfterLogin', {}) %>
+
+		<div class="form-container">
+			<div class="title">Borrow book</div>
+			<form name="Login" action="/LateLogin/borrowBook" method="POST">
+				<div class="input-container">
+					<div class="text-input-up">isbn</div>
+					<input type="number" name="isbn" class="input" placeholder="Insert isbn Book" />
+				</div>
+
+				<div class="buttons-container">
+					<input type="submit" class="button" value="Borrow Book" />
+
+					<input type="reset" class="button" value="Reset" />
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

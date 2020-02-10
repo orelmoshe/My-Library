@@ -1,0 +1,6 @@
+.buttons-container {
+	justify-content: start;
+}
+.button:nth-child(2) {
+	margin-left: 5px;
+}
