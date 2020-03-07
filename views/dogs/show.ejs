@@ -1,0 +1,82 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="col-md-3">
+  <p class="lead">location</p>
+  <div id="map"></div>
+</div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= dog.image %>">
+                <div class="caption-full">
+                  <h4 class="pull-right"><strong>Price: ILS <%= dog.price %> per-day </strong> </h4>
+                    <h4><a>Name of the dog: <%=dog.name%></a></h4>
+                   <p><h5><strong>Dates: </strong><%=dog.date1%> - <%=dog.date2%> </h5></p>
+                    <p><strong>A little summery: </strong>: <%= dog.description %></p>
+                   <p>
+                   <em>Submitted by: <%= dog.author.username %>, <%= moment(dog.createdAt).fromNow() %></em>
+               </p>
+                    <% if(currentUser && dog.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                        <a class="btn btn-xs btn-warning" href="/dogs/<%= dog._id %>/edit">Edit</a>
+                        <form id="delete-form" action="/dogs/<%= dog._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                    <% }%>
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/dogs/<%= dog._id %>/comments/new">Add New Comment</a>
+                </div>
+                <hr>
+                <% dog.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><%= comment.author.username %></strong>
+                            <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+                            <p>
+                                <%= comment.text %> 
+                            </p>
+                        <% if(currentUser && comment.author.id.equals(currentUser._id)|| currentUser && currentUser.isAdmin){ %>
+                            <a class="btn btn-xs btn-warning" 
+                               href="/dogs/<%=dog._id %>/comments/<%=comment._id %>/edit">Edit</a>
+                            <form id="delete-form" action="/dogs/<%=dog._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                            </form>
+                        <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  function initMap() {
+    var lat = <%= dog.lat %>;
+    var lng = <%= dog.lng %>;
+    var center = {lat: lat, lng: lng };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: center,
+        scrollwheel: false
+    });
+    var contentString = `
+      <strong><%= dog.name %><br />
+      <%= dog.location %></strong>
+      <p><%= dog.description %></p>
+    `
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker({
+        position: center,
+        map: map
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDRDNlU6ykd9riVEjZkQZEvzXow6Z0yeI&callback=initMap"></script>
+<% include ../partials/footer %>

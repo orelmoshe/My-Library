@@ -1,0 +1,35 @@
+<% include ../partials/header %> 
+
+ <div class="container">
+     <header class="jumbotron">
+         <div class="container">
+               <p class="dog-sitter-photo"><img src="https://cdn-media-2.lifehack.org/wp-content/files/2016/07/18030309/dog-sitter-wishes-you-knew.jpg" align="right" style="width: 350px ;border-radius:100%;"></p>
+             <h1>Welcome To Pet-Me!</h1>
+             <p> Here you can put your dog and maybe to find a dog-sitter</p>
+             <p>
+                <a class="btn btn-primary btn-large" href="/dogs/new">Add your dog</a>
+             </p>
+         </div>
+     </header>
+     
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% dogs.forEach(function(dog){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= dog.image %>">
+                   <div class="caption">
+                       <h4><%= dog.name %></h4>
+                   </div>
+                   <p>
+                       <%= dog.location %>
+                   </p>
+                   <p>
+                       <a href="/dogs/<%= dog._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>
